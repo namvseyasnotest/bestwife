@@ -7,91 +7,112 @@
     <style>
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            /* Добавляем цветочный фон */
-            background-image: url('https://images.unsplash.com/photo-1518171129528-98e945c11030?q=80&w=2560&auto=format&fit=crop'); 
+            /* Используем другой качественный фон с цветами */
+            background: #ffecf2 url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed; 
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             display: flex; 
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
             margin: 0; 
+            overflow-x: hidden;
         }
         .container { 
-            background: rgba(255, 255, 255, 0.9); /* Делаем фон полупрозрачным, чтобы было видно цветы */
-            padding: 2rem; 
-            border-radius: 20px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+            background: rgba(255, 255, 255, 0.85); 
+            padding: 2.5rem; 
+            border-radius: 30px; 
+            box-shadow: 0 20px 50px rgba(216, 27, 96, 0.2); 
             text-align: center; 
             max-width: 450px; 
             width: 90%; 
-            backdrop-filter: blur(5px); /* Легкое размытие фона за контейнером */
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            border: 2px solid white;
         }
         h1 { 
-            color: #d81b60; 
+            color: #c2185b; 
             font-size: 1.8rem; 
             margin-bottom: 1.5rem; 
-            border-bottom: 3px solid #ff4d6d; 
-            padding-bottom: 15px; 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
         }
         ol { list-style: none; padding: 0; }
         li { 
             padding: 15px; 
-            margin: 10px 0; 
-            border-radius: 10px; 
-            color: #555; 
-            font-weight: 500; 
-            transition: transform 0.2s;
+            margin: 12px 0; 
+            border-radius: 15px; 
+            background: rgba(255, 255, 255, 0.5);
+            color: #777;
+            font-weight: 500;
         }
         .winner { 
-            background: linear-gradient(45deg, #ff4d6d, #ff8fa3); /* Градиент */
-            color: white; 
-            font-size: 1.3rem; 
+            background: linear-gradient(135deg, #ff4d6d 0%, #ff8fa3 100%); 
+            color: white !important; 
+            font-size: 1.4rem; 
             font-weight: bold; 
-            transform: scale(1.05); 
-            box-shadow: 0 6px 15px rgba(255, 77, 109, 0.4); 
-            position: relative; /* Для позиционирования сердечек */
+            transform: scale(1.1); 
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4); 
+            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
         }
-        .heart {
-            color: white;
-            animation: beat 1s infinite;
-            font-size: 1.4rem;
+        /* Анимированные сердечки в тексте */
+        .heart-inline {
+            display: inline-block;
+            animation: pulse 1.5s infinite;
         }
-        @keyframes beat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
         }
-        .other { 
-            background: #fff0f3;
-            opacity: 0.8; 
-            font-style: italic; 
+        /* Летающие сердечки на фоне */
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 77, 109, 0.3);
+            font-size: 20px;
+            user-select: none;
+            z-index: 1;
+            animation: float 6s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
+    <script>
+        for (let i = 0; i < 15; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'bg-heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.delay = Math.random() * 5 + 's';
+            document.body.appendChild(heart);
+        }
+    </script>
+
     <div class="container">
-        <h1>💖 Топ-10 лучших жён в России 💖</h1>
+        <h1>🌸 Топ-10 лучших жён 🌸</h1>
         <ol>
             <li class="winner">
-                <span class="heart">❤️</span>
+                <span class="heart-inline">❤️</span>
                 1. Ледовских Анастасия Александровна
-                <span class="heart">❤️</span>
+                <span class="heart-inline">❤️</span>
             </li>
-            <li class="other">2. Больше никто</li>
-            <li class="other">3. Больше никто</li>
-            <li class="other">4. Больше никто</li>
-            <li class="other">5. Больше никто</li>
-            <li class="other">6. Больше никто</li>
-            <li class="other">7. Больше никто</li>
-            <li class="other">8. Больше никто</li>
-            <li class="other">9. Больше никто</li>
-            <li class="other">10. Больше никто</li>
+            <li>2. Больше никто</li>
+            <li>3. Больше никто</li>
+            <li>4. Больше никто</li>
+            <li>5. Больше никто</li>
+            <li>6. Больше никто</li>
+            <li>7. Больше никто</li>
+            <li>8. Больше никто</li>
+            <li>9. Больше никто</li>
+            <li>10. Больше никто</li>
         </ol>
     </div>
 </body>
