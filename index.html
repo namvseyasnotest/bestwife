@@ -5,20 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Рейтинг лучших жён России</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .container { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; max-width: 400px; width: 90%; }
-        h1 { color: #333; font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #ff4d6d; padding-bottom: 10px; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            /* Добавляем цветочный фон */
+            background-image: url('https://images.unsplash.com/photo-1518171129528-98e945c11030?q=80&w=2560&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+        }
+        .container { 
+            background: rgba(255, 255, 255, 0.9); /* Делаем фон полупрозрачным, чтобы было видно цветы */
+            padding: 2rem; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+            text-align: center; 
+            max-width: 450px; 
+            width: 90%; 
+            backdrop-filter: blur(5px); /* Легкое размытие фона за контейнером */
+        }
+        h1 { 
+            color: #d81b60; 
+            font-size: 1.8rem; 
+            margin-bottom: 1.5rem; 
+            border-bottom: 3px solid #ff4d6d; 
+            padding-bottom: 15px; 
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
         ol { list-style: none; padding: 0; }
-        li { padding: 12px; margin: 8px 0; border-radius: 8px; background: #fff0f3; color: #555; font-weight: 500; }
-        .winner { background: #ff4d6d; color: white; font-size: 1.2rem; font-weight: bold; transform: scale(1.05); box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3); }
-        .other { opacity: 0.7; font-style: italic; }
+        li { 
+            padding: 15px; 
+            margin: 10px 0; 
+            border-radius: 10px; 
+            color: #555; 
+            font-weight: 500; 
+            transition: transform 0.2s;
+        }
+        .winner { 
+            background: linear-gradient(45deg, #ff4d6d, #ff8fa3); /* Градиент */
+            color: white; 
+            font-size: 1.3rem; 
+            font-weight: bold; 
+            transform: scale(1.05); 
+            box-shadow: 0 6px 15px rgba(255, 77, 109, 0.4); 
+            position: relative; /* Для позиционирования сердечек */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .heart {
+            color: white;
+            animation: beat 1s infinite;
+            font-size: 1.4rem;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .other { 
+            background: #fff0f3;
+            opacity: 0.8; 
+            font-style: italic; 
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Топ-10 лучших жён в России</h1>
+        <h1>💖 Топ-10 лучших жён в России 💖</h1>
         <ol>
-            <li class="winner">1. Ледовских Анастасия Александровна</li>
+            <li class="winner">
+                <span class="heart">❤️</span>
+                1. Ледовских Анастасия Александровна
+                <span class="heart">❤️</span>
+            </li>
             <li class="other">2. Больше никто</li>
             <li class="other">3. Больше никто</li>
             <li class="other">4. Больше никто</li>
